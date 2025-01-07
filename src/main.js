@@ -1,4 +1,18 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import App from './App.vue'
+import { createMemoryHistory, createRouter } from 'vue-router'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
 
-createApp(App).mount('#app')
+import {routes} from "@/router";
+
+
+const router = createRouter({
+  history: createMemoryHistory(),
+  routes,
+})
+
+createApp(App)
+  .use(router)
+  .use(ElementPlus)
+  .mount('#app')
